@@ -1,0 +1,26 @@
+[Unit]
+Description=TPFCoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=tpfcoin
+Group=tpfcoin
+
+Type=forking
+PIDFile=/var/lib/tpfcoind/tpfcoind.pid
+
+ExecStart=/usr/bin/tpfcoind -daemon -pid=/var/lib/tpfcoind/tpfcoind.pid \
+          -conf=/etc/tpfcoin/tpfcoin.conf -datadir=/var/lib/tpfcoind
+
+ExecStop=-/usr/bin/tpfcoin-cli -conf=/etc/tpfcoin/tpfcoin.conf \
+         -datadir=/var/lib/tpfcoind stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

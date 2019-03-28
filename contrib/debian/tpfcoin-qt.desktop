@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=TPFCoin
+Comment=TPFCoin P2P Cryptocurrency
+Comment[fr]=TPFCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=TPFCoin, eşten eşe kriptografik sanal para birimi
+Exec=tpfcoin-qt %u
+Terminal=false
+Type=Application
+Icon=tpfcoin128
+MimeType=x-scheme-handler/tpfcoin;
+Categories=Office;Finance;

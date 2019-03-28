@@ -1,0 +1,26 @@
+# /etc/conf.d/tpfcoind: config file for /etc/init.d/tpfcoind
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/tpfcoin/tpfcoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/tpfcoind"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/tpfcoind.pid"
+
+# Where to write tpfcoind data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/tpfcoind"
+
+# User and group to own tpfcoind process
+#BITCOIND_USER="tpfcoin"
+#BITCOIND_GROUP="tpfcoin"
+
+# Path to tpfcoind executable
+#BITCOIND_BIN="/usr/bin/tpfcoind"
+
+# Nice value to run tpfcoind under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

@@ -1,0 +1,218 @@
+######## depends & libs
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install build-essential binutils-gold pkg-config bsdmainutils libstdc++6-4.7-dev curl librsvg2-bin libtiff-tools bsdmainutils cmake imagemagick libcap-dev libz-dev libbz2-dev python-setuptools curl g++-aarch64-linux-gnu g++-4.8-aarch64-linux-gnu gcc-4.8-aarch64-linux-gnu binutils-aarch64-linux-gnu g++-arm-linux-gnueabihf g++-4.8-arm-linux-gnueabihf gcc-4.8-arm-linux-gnueabihf binutils-arm-linux-gnueabihf g++-4.8-multilib gcc-4.8-multilib gcc-mingw-w64 g++-mingw-w64 automake autoconf pkg-config libtool libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+##### BUILD SOURCE
+
+##### Ubuntu->Daemon
+./autogen.sh
+./configure --prefix=/root/TUKA/depends_last/x86_64-pc-linux-gnu --without-gui
+make clean
+make
+cp ./src/tpfcoind ./BUILD/Ubuntu/tpfcoind
+cp ./src/tpfcoin-cli ./BUILD/Ubuntu/tpfcoin-cli
+cp ./src/tpfcoin-tx ./BUILD/Ubuntu/tpfcoin-tx
+
+
+./autogen.sh
+
+##### MacOSX
+make clean
+./configure --prefix=/root/TUKA/depends_last/x86_64-apple-darwin11
+make
+make deploy
+cp ./TPFCoin-Core.dmg ./BUILD/MacOSX/TPFCoin-Core.dmg
+cp ./src/tpfcoind ./BUILD/MacOSX/tpfcoind
+cp ./src/tpfcoin-cli ./BUILD/MacOSX/tpfcoin-cli
+cp ./src/tpfcoin-tx ./BUILD/MacOSX/tpfcoin-tx
+cp ./src/qt/tpfcoin-qt ./BUILD/MacOSX/tpfcoin-qt
+
+
+##### Ubuntu
+make clean
+./configure --prefix=/root/TUKA/depends_last/x86_64-pc-linux-gnu --without-gui
+make
+cp ./src/tpfcoind ./BUILD/Ubuntu/tpfcoind
+cp ./src/tpfcoin-cli ./BUILD/Ubuntu/tpfcoin-cli
+cp ./src/tpfcoin-tx ./BUILD/Ubuntu/tpfcoin-tx
+cp ./src/qt/tpfcoin-qt ./BUILD/Ubuntu/tpfcoin-qt
+
+
+##### Windows
+make clean
+./configure --prefix=/root/TUKA/depends_last/i686-w64-mingw32
+make
+cp ./src/tpfcoind.exe ./BUILD/Windows/tpfcoind.exe
+cp ./src/tpfcoin-cli.exe ./BUILD/Windows/tpfcoin-cli.exe
+cp ./src/tpfcoin-tx.exe ./BUILD/Windows/tpfcoin-tx.exe
+cp src/qt/tpfcoin-qt.exe ./BUILD/Windows/tpfcoin-qt.exe
+
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+openssl ecparam -name prime256v1 -genkey > /tmp/ecprivkey_tpfcoin.pem
+openssl ec -in /tmp/ecprivkey_tpfcoin.pem -text -noout
+
+##############################
+
+Private-Key: (256 bit)
+priv:
+    30:2b:a1:1e:4d:77:46:83:58:20:86:6d:49:f1:96:
+    1d:69:2b:ca:21:3e:7b:76:3a:ee:eb:2c:05:81:15:
+    47:bc
+pub:
+    04:1f:03:69:8c:43:8c:58:38:ab:d3:f9:b3:a4:27:
+    ad:71:0f:ba:e0:34:ba:7f:7d:23:50:3c:eb:62:c7:
+    70:bd:3d:2a:14:50:39:19:43:d1:bb:e5:a6:4d:98:
+    b2:bc:ef:cc:5e:aa:45:e1:01:21:1b:35:5a:43:8b:
+    3e:aa:38:ba:d1
+ASN1 OID: prime256v1
+NIST CURVE: P-256
+041f03698c438c5838abd3f9b3a427ad710fbae034ba7f7d23503ceb62c770bd3d2a1450391943d1bbe5a64d98b2bcefcc5eaa45e101211b355a438b3eaa38bad1
+
+##############################
+
+openssl ecparam -name prime256v1 -genkey > /tmp/ecprivkey_tpfcoin_testnet.pem
+openssl ec -in /tmp/ecprivkey_tpfcoin_testnet.pem -text -noout
+
+Private-Key: (256 bit)
+priv:
+    1a:75:6f:5d:67:e8:28:30:58:d8:e9:13:68:0f:5d:
+    5c:e7:74:aa:83:a9:26:31:e0:b6:e5:86:14:f7:31:
+    14:24
+pub:
+    04:ab:5b:e0:9c:2a:0c:a9:36:73:b6:a9:16:a2:3f:
+    3b:4e:f0:01:05:d7:71:ce:db:75:9e:32:1e:ed:ad:
+    ef:b7:d1:96:fe:ae:ef:97:eb:40:76:e7:3d:5f:8c:
+    54:c5:3a:1d:48:bf:b0:46:4c:61:f9:9b:47:0a:d3:
+    65:b7:63:b2:a0
+ASN1 OID: prime256v1
+NIST CURVE: P-256
+04ab5be09c2a0ca93673b6a916a23f3b4ef00105d771cedb759e321eedadefb7d196feaeef97eb4076e73d5f8c54c53a1d48bfb0464c61f99b470ad365b763b2a0
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+######## RENAME && REPLACE
+
+chainparams.cpp
+chainparams.h
+main.cpp
+main.h
+amount.h
+
+TPFCoin 100 trieu
+Đào trước 30 triệu
+MasterNode require 10000
+Block reward : 20 coin/ block
+Tên coin là TPF
+Website là tpfholdings.com
+Ký tự chữ đầu là S
+
+
+Location:
+New Jersey
+IP Address:
+149.28.233.64   scoin1.cryptodeveloper.info
+Username:
+root
+Password:
+{9YdpH)[2YLED_yH
+------------
+
+Location:
+Singapore
+IP Address:
+45.77.169.24    scoin2.cryptodeveloper.info
+Username:
+root
+Password:
+f9P-#y{b2_chPzzb
+
+
+find ./ -type f -exec rename 's/TPFCoin/TPFCoin/g' {} \;
+find ./ -type f -exec rename 's/tpfcoin/tpfcoin/g' {} \;
+
+find ./ -type f -exec sed -i -e 's/TPFCoin/TPFCoin/g' {} \;
+find ./ -type f -exec sed -i -e 's/tpfcoin/tpfcoin/g' {} \;
+find ./ -type f -exec sed -i -e 's/TPF/TPF/g' {} \; 
+
+find ./ -type f -exec sed -i -e 's/53535/53535/g' {} \; # p2p
+find ./ -type f -exec sed -i -e 's/53535/35353/g' {} \; # rpc
+find ./ -type f -exec sed -i -e 's/42424/43456/g' {} \; # p2p testnet
+find ./ -type f -exec sed -i -e 's/42424/42424/g' {} \; # rpc testnet
+
+find ./ -type f -exec sed -i -e 's/tpfsauSf5pF2UkUwv/TpfHoldings2UkUwv/g' {} \; # address rpc cmd examples
+
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+rm -rf i686* built/i686* work/build/i686* x86_64* built/x86_64* work/build/x86_64*
+
+######## BUILD DEPENDS
+### for only macOS
+make SDK_PATH=/root/TUKA/mac_sdks HOST=x86_64-apple-darwin11
+
+### for only Ubuntu & Windows
+make HOST=x86_64-pc-linux-gnu && make HOST=i686-w64-mingw32
+
+### for all platform
+git clone https://github.com/codekiet/MacOSX-SDKs mac_sdks
+make SDK_PATH=/root/TUKA/mac_sdks HOST=x86_64-apple-darwin11 && make HOST=x86_64-pc-linux-gnu && make HOST=i686-w64-mingw32
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+git clone https://github.com/tpruvot/cpuminer-multi cpuminer && cd cpuminer
+
+./autogen.sh
+
+# only needed if building on Mac OS X or with Clang
+    ./nomacro.pl
+    perl -p -i -e "s/#if \(WINDOWS\)/#define ASM 0\n#if (WINDOWS)/g" algo/neoscrypt.c
+# only needed if building on Mac OS X or with Clang
+
+./configure -march=native --with-crypto --with-curl
+./configure CFLAGS="*-march=native*" --with-crypto --with-curl
+./configure CFLAGS="-march=native" --with-crypto=/usr/local/opt/openssl  --with-curl
+
+make
+
+./cpuminer -t 2 -a tribus -o http://127.0.0.1:35353 -u tpfcoinrpc -p 3vn57bz6CAbw2vX8xFBXw61XCRifgdshx2paAvCwQxSc --protocol-dump
+
+
+###### Seed Config
+nano ~/.tpfcoin/tpfcoin.conf
+
+rpcuser=tpfcoinrpc
+rpcpassword=3vn57bz6CAbw2vX8xFBXw61XCRifgdshx2paAvCwQxSc
+rpcallowip=127.0.0.1
+rpcport=35353
+port=53535
+
+daemon=1
+txindex=1
+listen=1
+server=1
+
+externalip=:53535
+masternode=1
+masternodeprivkey=
+masternodeaddr=:53535
+
+debug=1
+help-debug=1
+logips=1
+printpriority=1
+printstakemodifier=1
+printcoinstake=1
